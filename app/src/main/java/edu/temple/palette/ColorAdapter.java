@@ -47,7 +47,7 @@ public class ColorAdapter extends BaseAdapter {
         textView.setText(colors[position]);
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(32);
-            textView.setBackgroundColor(Color.parseColor(hexes[position]));
+        textView.setBackgroundColor(Color.parseColor(hexes[position]));
 
         return textView;
     }
