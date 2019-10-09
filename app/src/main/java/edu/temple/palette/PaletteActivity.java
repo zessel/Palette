@@ -19,11 +19,13 @@ public class PaletteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final Intent intent = new Intent(this, CanvasActivity.class);
-        final String colors[] = {"Select a color", "Red", "Magenta", "Yellow", "Green", "Blue", "Cyan", "White", "Gray",
-                "Lime", "Olive", "Purple", "Teal"};
+
         Spinner spinner = findViewById(R.id.spinner);
 
-        ColorAdapter colorAdapter = new ColorAdapter(PaletteActivity.this, colors);
+        final String colors[] = getResources().getStringArray(R.array.color_array);
+        final String hexes[] = getResources().getStringArray(R.array.color_hexes);
+
+        ColorAdapter colorAdapter = new ColorAdapter(PaletteActivity.this, colors, hexes);
 
         spinner.setAdapter(colorAdapter);
 
@@ -31,7 +33,7 @@ public class PaletteActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0){
-                    String selectedColor = colors[position];
+                    String selectedColor = hexes[position];
                     intent.putExtra(SELECTED_COLOR,selectedColor);
                     startActivity(intent);
                 }
@@ -41,7 +43,7 @@ public class PaletteActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
 
-        });
+        }); 
     }
 
 }

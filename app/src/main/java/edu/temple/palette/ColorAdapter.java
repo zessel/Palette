@@ -12,10 +12,12 @@ public class ColorAdapter extends BaseAdapter {
 
     Context context;
     String colors[];
+    String hexes[];
 
-    public ColorAdapter(Context context, String[] colors) {
+    public ColorAdapter(Context context, String[] colors, String[] hexes) {
         this.context = context;
         this.colors = colors;
+        this.hexes = hexes;
     }
 
     @Override
@@ -45,10 +47,7 @@ public class ColorAdapter extends BaseAdapter {
         textView.setText(colors[position]);
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(32);
-        if (position == 0)
-            textView.setBackgroundColor(000000);
-        else
-            textView.setBackgroundColor(Color.parseColor(colors[position]));
+            textView.setBackgroundColor(Color.parseColor(hexes[position]));
 
         return textView;
     }

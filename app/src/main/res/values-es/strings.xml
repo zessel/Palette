@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Palette</string>
+    <string-array name="color_array">
+        <item>seleccionar el color</item>
+        <item>rojo</item>
+        <item>naranja</item>
+        <item>amarillo</item>
+        <item>verde</item>
+        <item>azul</item>
+        <item>indigo</item>
+        <item>violet</item>
+        <item>gris</item>
+        <item>coral</item>
+        <item>marron</item>
+        <item>blanco</item>
+    </string-array>
+</resources>
