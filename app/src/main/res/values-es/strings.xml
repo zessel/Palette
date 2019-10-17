@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Palette</string>
+    <string name="app_name">Paleta</string>
+    <string name="palette_activity_name">Actividad de Paleta</string>
+    <string name="canvas_activity_name">Actividad de Lienzo</string>
     <string-array name="color_array">
         <item>seleccionar el color</item>
         <item>rojo</item>

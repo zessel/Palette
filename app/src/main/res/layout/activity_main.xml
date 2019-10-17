@@ -5,13 +5,5 @@
     android:id="@+id/palette_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaletteActivity">
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    tools:context=".PaletteActivity"
+    />
