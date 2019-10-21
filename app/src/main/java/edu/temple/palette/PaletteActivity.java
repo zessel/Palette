@@ -11,10 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-public class PaletteActivity extends AppCompatActivity implements PaletteFragment.ColorSelectedInterface /*,
-        CanvasFragment.CanvasReturnInterface*/ {
-
-    //public static final String SELECTED_COLOR = "edu.temple.palette.MESSAGE";
+public class PaletteActivity extends AppCompatActivity implements PaletteFragment.ColorSelectedInterface{
 
     FragmentManager fragmentManager;
     PaletteFragment paletteFragment;
@@ -29,26 +26,15 @@ public class PaletteActivity extends AppCompatActivity implements PaletteFragmen
         final String[] hexes = getResources().getStringArray(R.array.color_hexes);
 
         paletteFragment = PaletteFragment.newInstance(colors, hexes);
+        canvasFragment = CanvasFragment.newInstance();
         fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.palette_layout, paletteFragment).commit();
+        fragmentManager.beginTransaction().add(R.id.palette_layout, canvasFragment)
+                .add(R.id.palette_layout, paletteFragment).commit();
 
     }
 
     @Override
-    public void ColorSelected(int position) {
-        if (position != 0) {
-            String[] hexes = getResources().getStringArray(R.array.color_hexes);
-            canvasFragment = CanvasFragment.newInstance(hexes[position]);
-            fragmentManager.beginTransaction().addToBackStack(null).add(R.id.palette_layout, canvasFragment).commit();
-        }
+    public void ColorSelected(String colorChosen) {
+        canvasFragment.changeCanvasColor(colorChosen);
     }
-
-    /*  This interface and button were made before I knew about the backstack
-
-    @Override
-    public void CanvasReturn() {
-        String[] hexes = getResources().getStringArray(R.array.color_array);
-        String[] colors= getResources().getStringArray(R.array.color_hexes);
-        fragmentManager.beginTransaction().remove(canvasFragment).commit();
-    }*/
 }

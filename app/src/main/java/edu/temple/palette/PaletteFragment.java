@@ -1,21 +1,14 @@
 package edu.temple.palette;
 
-
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PaletteFragment extends Fragment {
 
     private String[] colors;
@@ -24,7 +17,7 @@ public class PaletteFragment extends Fragment {
     private final static String COLOR_KEY = "colors";
     private final static String HEX_KEY = "hexes";
 
-    ColorSelectedInterface parentActivity;
+    private ColorSelectedInterface parentActivity;
 
     public PaletteFragment() {
         // Required empty public constructor
@@ -53,7 +46,7 @@ public class PaletteFragment extends Fragment {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                parentActivity.ColorSelected(position);
+                parentActivity.ColorSelected(hexes[position]);
             }
 
             @Override
@@ -61,7 +54,6 @@ public class PaletteFragment extends Fragment {
 
             }
         });
-        // Inflate the layout for this fragment
         return fragmentView;
     }
 
@@ -76,7 +68,7 @@ public class PaletteFragment extends Fragment {
         }
     }
 
-    public static PaletteFragment newInstance(String[] colors, String[] hexes) {
+    static PaletteFragment newInstance(String[] colors, String[] hexes) {
         PaletteFragment paletteFragment = new PaletteFragment();
         Bundle bundle = new Bundle();
         bundle.putStringArray(COLOR_KEY, colors);
@@ -86,6 +78,6 @@ public class PaletteFragment extends Fragment {
     }
 
     public interface ColorSelectedInterface {
-        void ColorSelected(int position);
+        void ColorSelected(String chosenColor);
     }
 }
