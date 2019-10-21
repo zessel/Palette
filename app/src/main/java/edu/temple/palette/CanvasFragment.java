@@ -22,12 +22,12 @@ public class CanvasFragment extends Fragment {
 
     private String hexChosen;
 
-    CanvasReturnInterface fragmentParent;
+    //CanvasReturnInterface fragmentParent;
     public CanvasFragment() {
         // Required empty public constructor
     }
 
-    @Override
+    /*@Override
     public void onAttach(Context context){
         super.onAttach(context);
         if (context instanceof CanvasReturnInterface)
@@ -35,7 +35,7 @@ public class CanvasFragment extends Fragment {
 
         else
             throw new RuntimeException("Didn't implement CanvasReturnInterface");
-    }
+    }*/
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -54,14 +54,14 @@ public class CanvasFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_canvas, container, false);
 
         view.setBackgroundColor(Color.parseColor(hexChosen));
-
+/*
         Button button = view.findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fragmentParent.CanvasReturn();
             }
-        });
+        });*/
 
         return view;
     }
@@ -75,8 +75,8 @@ public class CanvasFragment extends Fragment {
         return canvasFragment;
     }
 
-    public interface CanvasReturnInterface
+    /*public interface CanvasReturnInterface
     {
         void CanvasReturn();
-    }
+    }*/
 }
